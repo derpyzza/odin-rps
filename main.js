@@ -4,7 +4,7 @@ function comPlay() {
     let moves = [ "rock", "paper", "scissors" ];
 
     let move = moves[Math.floor(Math.random() * moves.length)];
-    console.log( "computer: " + move );
+    //console.log( "computer: " + move );
     return move;
 }
 
@@ -13,7 +13,7 @@ function plyInput() {
     if ( input != "rock" && input != "paper" && input != "scissors") {
         console.error("not a valid move, use one of: rock, paper, scissors");
     }
-    console.log( input );
+    //console.log( input );
     return input;
 }
 
@@ -68,13 +68,13 @@ function playMatch () {
         let result = playRound( plyInput(), comPlay());
 
         if ( result == 0 )
-            ply++;            
+            com++;            
         else if ( result == 1 ) 
-            com++;
+            ply++;
         //else console.error("something went wrong");
-        
     }
-    ply > com ? console.log ( "you win!" ) : console.log ( "you lose!" );
+    if (ply == com) console.log("it's a tie!");
+    else ply > com ? console.log ( "you win!" ) : console.log ( "you lose!" );
     console.log ( "score: " + ply + " : " + com );
 }
 
